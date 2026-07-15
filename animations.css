@@ -1,0 +1,108 @@
+/* ============ SPLASH SCREEN ============ */
+#splash {
+  position: fixed; inset: 0;
+  z-index: 9999;
+  background: radial-gradient(circle at 50% 40%, #16203f, var(--navy-deep) 70%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  transition: opacity 900ms var(--ease-out), visibility 900ms var(--ease-out);
+}
+#splash.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+#splash .splash-logo {
+  font-size: 2.4rem; font-weight: 800; color: var(--white);
+  opacity: 0; transform: translateY(14px);
+  animation: splashFade 1000ms var(--ease-out) 200ms forwards;
+}
+#splash .splash-logo span { color: var(--gold-light); }
+#splash .splash-line {
+  width: 0; height: 1px; background: var(--gold-light);
+  margin-block: var(--sp-4);
+  animation: splashLine 900ms var(--ease-out) 900ms forwards;
+}
+#splash .splash-tagline {
+  font-size: 1rem; color: var(--beige); opacity: 0;
+  letter-spacing: 0.04em;
+  animation: splashFade 900ms var(--ease-out) 1300ms forwards;
+}
+@keyframes splashFade { to { opacity: 1; transform: translateY(0); } }
+@keyframes splashLine { to { width: 160px; } }
+
+#splash canvas { position: absolute; inset: 0; z-index: -1; opacity: .5; }
+
+/* ============ SCROLL REVEAL ============ */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 900ms var(--ease-out), transform 900ms var(--ease-out);
+}
+.reveal.in-view { opacity: 1; transform: translateY(0); }
+.reveal-scale { opacity: 0; transform: scale(0.94); transition: opacity 900ms var(--ease-out), transform 900ms var(--ease-out); }
+.reveal-scale.in-view { opacity: 1; transform: scale(1); }
+
+.stagger > * { transition-delay: calc(var(--i, 0) * 90ms); }
+
+/* ============ FLOATING ============ */
+.float-slow { animation: floatY 7s var(--ease-in-out) infinite; }
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+}
+
+/* ============ PARTICLES CANVAS ============ */
+.particles-canvas { position: absolute; inset: 0; pointer-events: none; }
+
+/* ============ GOLD GLOW PULSE ============ */
+.gold-pulse { animation: goldPulse 3.4s ease-in-out infinite; }
+@keyframes goldPulse {
+  0%, 100% { box-shadow: 0 0 0 rgba(231,198,106,0); }
+  50% { box-shadow: 0 0 30px rgba(231,198,106,0.35); }
+}
+
+/* ============ SCROLL INDICATOR ============ */
+.scroll-indicator {
+  position: absolute; bottom: var(--sp-8); left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  opacity: 0.75;
+}
+.scroll-indicator .line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold-light), transparent); position: relative; overflow: hidden; }
+.scroll-indicator .line::after {
+  content: ''; position: absolute; top: -100%; width: 100%; height: 40%;
+  background: var(--gold-light);
+  animation: scrollDown 2s var(--ease-in-out) infinite;
+}
+@keyframes scrollDown { to { top: 120%; } }
+
+/* ============ CURSOR RING (desktop) ============ */
+.cursor-ring {
+  position: fixed; width: 34px; height: 34px; border: 1px solid var(--gold-light);
+  border-radius: 50%; pointer-events: none; z-index: 9000;
+  transform: translate(-50%, -50%);
+  transition: width 200ms var(--ease-out), height 200ms var(--ease-out), opacity 200ms var(--ease-out), background 200ms var(--ease-out);
+  opacity: 0;
+  mix-blend-mode: difference;
+}
+.cursor-ring.active { opacity: 1; }
+.cursor-ring.grow { width: 60px; height: 60px; background: rgba(231,198,106,0.15); }
+@media (hover: none), (max-width: 1023px) { .cursor-ring { display: none; } }
+
+/* ============ COUNTER ============ */
+.counting { color: var(--gold-light); }
+
+/* ============ SHIMMER (loading) ============ */
+.skeleton {
+  background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.08) 37%, rgba(255,255,255,0.03) 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.6s ease infinite;
+}
+@keyframes shimmer { 0% { background-position: 100% 50%; } 100% { background-position: 0 50%; } }
+
+/* ============ SECTION LIGHT TRANSITION ============ */
+.light-seam {
+  height: 140px;
+  margin-block: calc(var(--sp-32) * -1) 0;
+  background: linear-gradient(to bottom, transparent, rgba(231,198,106,0.06), transparent);
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ============ IMAGE SHINE (product hover already handled) ============ */

@@ -1,0 +1,125 @@
+@import url('variables.css');
+@import url('reset.css');
+@import url('typography.css');
+@import url('layout.css');
+@import url('components.css');
+@import url('animations.css');
+@import url('utilities.css');
+
+html { direction: rtl; }
+
+/* ============ AMBIENT SECTION BACKGROUNDS ============ */
+.bg-ambient {
+  background:
+    radial-gradient(900px 500px at 15% 0%, rgba(231,198,106,0.07), transparent 60%),
+    radial-gradient(700px 400px at 90% 100%, rgba(184,146,42,0.06), transparent 55%),
+    var(--navy-deep);
+}
+.bg-ambient-alt {
+  background:
+    radial-gradient(800px 460px at 85% 10%, rgba(231,198,106,0.06), transparent 55%),
+    linear-gradient(180deg, var(--navy-deep), var(--navy) 50%, var(--navy-deep));
+}
+
+.palm-texture { position: relative; }
+.palm-texture::before {
+  content: '';
+  position: absolute; inset: 0;
+  opacity: 0.05;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cg stroke='%23E7C66A' stroke-width='1' fill='none' opacity='0.6'%3E%3Cpath d='M120 220 Q100 140 40 90'/%3E%3Cpath d='M120 220 Q140 140 200 90'/%3E%3Cpath d='M120 220 Q110 130 60 60'/%3E%3Cpath d='M120 220 Q130 130 180 60'/%3E%3Cpath d='M120 220 Q120 110 120 20'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 420px;
+}
+
+/* geometric mashrabiya-inspired border accents */
+.mashrabiya-divider {
+  height: 64px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='64' viewBox='0 0 80 64'%3E%3Cg fill='none' stroke='%23B8922A' stroke-opacity='0.25'%3E%3Crect x='20' y='12' width='40' height='40' transform='rotate(45 40 32)'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+  opacity: 0.5;
+}
+
+/* ============ HERO ============ */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  position: relative;
+  padding-top: var(--header-h);
+  background:
+    radial-gradient(1200px 700px at 75% 20%, rgba(231,198,106,0.10), transparent 60%),
+    radial-gradient(900px 600px at 10% 90%, rgba(184,146,42,0.08), transparent 55%),
+    linear-gradient(160deg, #0B1224 0%, #141d3a 55%, #0B1224 100%);
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: var(--sp-16);
+  align-items: center;
+  width: 100%;
+  position: relative; z-index: 2;
+}
+.hero-copy h1 { margin-block: var(--sp-4); }
+.hero-copy .subtitle { color: var(--gold-light); font-size: var(--fs-subtitle); font-weight: 600; margin-bottom: var(--sp-4); }
+.hero-copy p.desc { max-width: 480px; opacity: 0.78; line-height: 1.9; margin-bottom: var(--sp-8); }
+.hero-actions { display: flex; gap: var(--sp-4); flex-wrap: wrap; }
+
+.hero-visual {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 420px;
+}
+.hero-box {
+  width: min(420px, 80%);
+  aspect-ratio: 1/1;
+  border-radius: 32px;
+  background: linear-gradient(150deg, #26325e, #101a34);
+  border: 1px solid var(--glass-border-hover);
+  box-shadow: var(--shadow-xl);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.hero-box svg { width: 62%; }
+.hero-box::after {
+  content: '';
+  position: absolute; bottom: -30px; left: 8%; right: 8%; height: 30px;
+  background: radial-gradient(ellipse at center, rgba(231,198,106,0.25), transparent 70%);
+  filter: blur(6px);
+}
+
+@media (max-width: 1023px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .hero-copy p.desc { margin-inline: auto; }
+  .hero-actions, .trust-row { justify-content: center; }
+  .hero-visual { order: -1; }
+}
+
+/* ============ EXHIBITION MAP / RENDER PLACEHOLDER ============ */
+.booth-render {
+  aspect-ratio: 21/9;
+  border-radius: var(--radius-card);
+  background: linear-gradient(140deg, #26325e, #0d1428);
+  border: 1px solid var(--glass-border-hover);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: var(--sp-16);
+  position: relative;
+  overflow: hidden;
+}
+.booth-render svg { width: 42%; opacity: .9; }
+@media (max-width: 767px) { .booth-render { aspect-ratio: 4/3; } }
+
+/* ============ SHOWCASE (cinematic single product) ============ */
+.showcase {
+  border-radius: var(--radius-modal);
+  padding: var(--sp-24) var(--sp-8);
+  text-align: center;
+  background: radial-gradient(700px 420px at 50% 30%, rgba(231,198,106,0.12), transparent 60%), var(--ink);
+  border: 1px solid var(--glass-border);
+}
+.showcase .showcase-media { width: min(320px, 70%); margin-inline: auto var(--sp-8); }
+
+/* ============ PACKAGING HERO BOX OPEN ============ */
+.box-open-wrap { display: flex; align-items: center; justify-content: center; margin-bottom: var(--sp-16); }
+.box-open { width: min(360px, 80%); }
+
+/* ============ RESPONSIVE FONT for sections already covered by variables ============ */

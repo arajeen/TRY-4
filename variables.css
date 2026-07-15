@@ -1,0 +1,78 @@
+:root {
+  /* === BRAND COLORS === */
+  --navy: #1D2746;
+  --navy-deep: #0B1224;
+  --navy-soft: #2A3660;
+  --gold: #B8922A;
+  --gold-light: #E7C66A;
+  --gold-dim: #8A6E24;
+  --beige: #F5EFE4;
+  --white: #FFFFFF;
+  --charcoal: #111827;
+  --ink: #0D1424;
+
+  /* translucent tokens */
+  --glass-bg: rgba(245, 239, 228, 0.05);
+  --glass-bg-strong: rgba(245, 239, 228, 0.09);
+  --glass-border: rgba(231, 198, 106, 0.18);
+  --glass-border-hover: rgba(231, 198, 106, 0.45);
+  --overlay-navy: rgba(11, 18, 36, 0.72);
+
+  /* === TYPOGRAPHY === */
+  --font-ar: 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
+  --font-en: 'Manrope', 'Inter', sans-serif;
+  --font-display: 'Tajawal', serif;
+
+  --fs-hero: clamp(2.5rem, 5.2vw, 5.5rem);
+  --fs-section: clamp(1.9rem, 3.4vw, 3.5rem);
+  --fs-subtitle: clamp(1.1rem, 1.6vw, 1.6rem);
+  --fs-body: clamp(1rem, 1.05vw, 1.15rem);
+  --fs-small: 0.95rem;
+  --fs-micro: 0.8rem;
+
+  /* === SPACING SYSTEM === */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-24: 96px;
+  --sp-32: 128px;
+
+  /* === RADIUS === */
+  --radius-btn: 16px;
+  --radius-card: 24px;
+  --radius-input: 16px;
+  --radius-modal: 28px;
+  --radius-pill: 999px;
+
+  /* === SHADOWS === */
+  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.45);
+  --shadow-xl: 0 32px 90px rgba(184, 146, 42, 0.18), 0 24px 60px rgba(0,0,0,.5);
+  --shadow-gold-glow: 0 0 40px rgba(231, 198, 106, 0.25);
+
+  /* === MOTION === */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-hover: 200ms;
+  --dur-card: 400ms;
+  --dur-section: 800ms;
+  --dur-hero: 1300ms;
+
+  /* === LAYOUT === */
+  --container-max: 1440px;
+  --container-pad: 80px;
+  --header-h: 88px;
+}
+
+@media (max-width: 1023px) {
+  :root { --container-pad: 48px; }
+}
+@media (max-width: 767px) {
+  :root { --container-pad: 20px; --header-h: 72px; }
+}

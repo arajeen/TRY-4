@@ -1,0 +1,12 @@
+{
+  "name": "عراجين - Arajeen Premium Dates",
+  "short_name": "عراجين",
+  "description": "تمور فاخرة وضيافة سعودية أصيلة",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1224",
+  "theme_color": "#0B1224",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": []
+}

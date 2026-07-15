@@ -1,0 +1,99 @@
+body {
+  font-family: var(--font-ar);
+  font-size: var(--fs-body);
+  color: var(--beige);
+  background: var(--navy-deep);
+  font-weight: 400;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-ar);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-family: var(--font-en);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  font-weight: 600;
+}
+.eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.h1 { font-size: var(--fs-hero); }
+.h2 { font-size: var(--fs-section); }
+
+.section-title {
+  font-size: var(--fs-section);
+  text-align: center;
+  margin-block: var(--sp-4) var(--sp-6);
+}
+
+.section-subtitle {
+  font-size: var(--fs-subtitle);
+  color: var(--beige);
+  opacity: 0.72;
+  text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.gold-text { color: var(--gold-light); }
+
+.section-head {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto var(--sp-16);
+}
+
+.gold-divider {
+  width: 90px;
+  height: 2px;
+  margin: var(--sp-6) auto 0;
+  background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+  position: relative;
+  overflow: hidden;
+}
+.gold-divider::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold-light);
+  transform: scaleX(0);
+  transform-origin: center;
+  animation: drawLine 1.1s var(--ease-out) forwards;
+  animation-play-state: paused;
+}
+.in-view .gold-divider::after { animation-play-state: running; }
+
+@keyframes drawLine {
+  to { transform: scaleX(1); }
+}
+
+.premium-quote {
+  font-size: clamp(1.4rem, 2.6vw, 2.4rem);
+  color: var(--gold-light);
+  text-align: center;
+  line-height: 1.6;
+  max-width: 780px;
+  margin-inline: auto;
+  font-weight: 500;
+}
+
+@media (max-width: 767px) {
+  .section-head { margin-bottom: var(--sp-12); }
+}
